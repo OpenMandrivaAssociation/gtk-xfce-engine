@@ -5,7 +5,7 @@ Name:		gtk-xfce-engine
 Version:	2.6.0
 Release:	%mkrel 1
 License:	GPLv3
-Group:		Desktop desktop/Xfce
+Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 BuildRequires:	gtk+2-devel > 2.6.0
