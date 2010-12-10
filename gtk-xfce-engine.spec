@@ -3,7 +3,7 @@
 Summary:	Additional themes for Xfce desktop environment
 Name:		gtk-xfce-engine
 Version:	2.6.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv3
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
