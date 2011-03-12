@@ -1,13 +1,14 @@
 %define gtkbinaryver %(if $([ -x %{_bindir}/pkg-config ] && pkg-config --exists gtk+-2.0); then pkg-config --variable=gtk_binary_version gtk+-2.0; else echo 0; fi)
+%define url_ver %(echo %{version} | cut -c 1-3)
 
 Summary:	Additional themes for Xfce desktop environment
 Name:		gtk-xfce-engine
-Version:	2.6.0
-Release:	%mkrel 2
+Version:	2.8.1
+Release:	%mkrel 1
 License:	GPLv3
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
-Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
+Source0:	http://archive.xfce.org/src/xfce/gtk-xfce-engine/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	gtk+2-devel > 2.6.0
 Conflicts:	gtk-engines2 < 2.18.1-2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -29,7 +30,7 @@ A default Xfce GTK+ themes.
 %makeinstall_std
 
 # (tpg) useless
-rm -rf %{buildroot}%{_libdir}/gtk-2.0/2.10.0/engines/libxfce.la
+rm -rf %{buildroot}%{_libdir}/gtk-2.0/2.10.0/engines/libxfce.*a
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
