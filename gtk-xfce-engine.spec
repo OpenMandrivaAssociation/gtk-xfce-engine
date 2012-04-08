@@ -3,15 +3,14 @@
 
 Summary:	Additional themes for Xfce desktop environment
 Name:		gtk-xfce-engine
-Version:	2.8.1
-Release:	%mkrel 1
+Version:	2.99.2
+Release:	1
 License:	GPLv3
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/gtk-xfce-engine/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	gtk+2-devel > 2.6.0
 Conflicts:	gtk-engines2 < 2.18.1-2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 A default Xfce GTK+ themes.
@@ -20,23 +19,19 @@ A default Xfce GTK+ themes.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x \
+	--disable-gtk3
 
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %makeinstall_std
 
 # (tpg) useless
 rm -rf %{buildroot}%{_libdir}/gtk-2.0/2.10.0/engines/libxfce.*a
-
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/gtk-2.0/%{gtkbinaryver}/engines/libxfce.so
 %{_datadir}/themes/Xfce*/gtk-2.0/gtkrc
+#%{_libdir}/gtk-3.0/%{gtkbinaryver}/engines/libxfce.so
+#%{_datadir}/themes/Xfce*/gtk-3.0/gtkrc
