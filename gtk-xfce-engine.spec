@@ -31,7 +31,10 @@ A default Xfce GTK+ themes.
 
 %build
 %xdt_autogen
-%configure
+%configure \
+	--enable-gtk2 \
+	--enable-gtk3 \
+	%{nil}
 %make_build
 
 %install
