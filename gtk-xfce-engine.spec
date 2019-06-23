@@ -4,32 +4,32 @@
 
 Summary:	Additional themes for Xfce desktop environment
 Name:		gtk-xfce-engine
-Version:	3.0.1
-Release:	4
+Version:	3.2.0
+Release:	1
 License:	GPLv3
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/gtk-xfce-engine/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
-Conflicts:	gtk-engines2 < 2.18.1-2
 
 %description
 A default Xfce GTK+ themes.
-
-%prep
-%setup -q
-
-%build
-%configure2_5x --disable-static
-
-%make
-
-%install
-%makeinstall_std
 
 %files
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/gtk-2.0/%{gtkbinaryver}/engines/libxfce.so
 %{_libdir}/gtk-3.0/%{gtk3binaryver}/theming-engines/libxfce.so
 %{_datadir}/themes/Xfce*
+
+#---------------------------------------------------------------------------
+
+%prep
+%setup -q
+
+%build
+%configure
+%make_build
+
+%install
+%make_install
