@@ -10,8 +10,10 @@ License:	GPLv3
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/xfce/gtk-xfce-engine/%{url_ver}/%{name}-%{version}.tar.bz2
+BuildRequires:  pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:  xfce4-dev-tools
 
 %description
 A default Xfce GTK+ themes.
@@ -28,6 +30,7 @@ A default Xfce GTK+ themes.
 %setup -q
 
 %build
+%xdt_autogen
 %configure
 %make_build
 
